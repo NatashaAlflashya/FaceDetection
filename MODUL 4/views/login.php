@@ -38,11 +38,13 @@ if (isset($_SESSION['login'])) {
 
                         <!-- (1) Buat alert message menggunakan variabel session yang sudah dibuat -->
                         <!-- ----------  Letakkan Kode di bawah ini  ----------- -->
-                        <?php if(isset($_SESSION['error'])): ?>
-                            <div class="alert alert-danger" role="alert">
-                                <?php echo $_SESSION['error']; unset($_SESSION['error']); ?>
-                            </div>
-                        <?php endif; ?>
+
+                        <?php if(isset($_SESSION['message']) and isset($_SESSION['color'])){ ?>
+                        <div class="alert alert-<?= $_SESSION['color']?>" role="alert">
+                            <?= $_SESSION['message'] ?>
+                        </div>
+                        <?php unset($_SESSION['message']);} ?>
+                        
                         <!-- **********************  (1)  ********************** -->
                         
                         <form method="post" action="">

@@ -24,12 +24,13 @@ if (isset($_SESSION['login'])) {
 
                         <!-- (1) Buatlah alert untuk menampilkan pesan error menggunakan session -->
                         <!-- ----------  Letakkan Kode di bawah ini  ----------- -->
-                        <?php if(isset($_SESSION['error'])): ?>
+                        
+                        <?php if(isset($_SESSION['message'])){ ?>
                         <div class="alert alert-danger" role="alert">
-                        <?php echo $_SESSION['error']; unset($_SESSION['error']); ?>
+                            <?= $_SESSION['message'] ?>
                         </div>
-                        <?php endif; ?>    
-                    
+                        <?php unset($_SESSION['message']);} ?>
+                        
                         <!-- **********************  (1)  ********************** -->
 
                         <form method="post" action="../config/RegisterController.php">
